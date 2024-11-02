@@ -1,0 +1,199 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: #2d3748;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.add-note {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+input[type="text"] {
+    width: 300px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+select{
+    width: 140px;
+    padding: 0.75rem 1rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.2s;
+}
+
+
+select:focus{
+    outline: none;
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+}
+
+input[type="text"]:focus {
+    outline: none;
+    border-color: #fbbf24;
+    box-shadow: 0 0 0 3px rgba(251, 191, 36, 0.2);
+}
+
+button {
+    background: #fbbf24;
+    color: #000;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: #f59e0b;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.notes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.note {
+    background: #fef08a;
+    padding: 1.5rem;
+    border-radius: 2px;
+    box-shadow: 
+        0 5px 10px rgba(0, 0, 0, 0.1),
+        0 3px 3px rgba(0, 0, 0, 0.05);
+    transform: rotate(-1deg);
+    transition: all 0.2s;
+    position: relative;
+    min-height: 150px;
+}
+
+.critic-note{
+    background: #005cde !important;
+    padding: 1.5rem;
+    border-radius: 2px;
+    box-shadow: 
+        0 5px 10px rgba(0, 0, 0, 0.1),
+        0 3px 3px rgba(0, 0, 0, 0.05);
+    transform: rotate(-1deg);
+    transition: all 0.2s;
+    position: relative;
+    min-height: 150px;
+    font-size: 1.4rem;
+}
+
+.note-error {
+    background: #e21515;
+    padding: 1.5rem;
+    border-radius: 2px;
+    box-shadow: 
+        0 5px 10px rgba(0, 0, 0, 0.1),
+        0 3px 3px rgba(0, 0, 0, 0.05);
+    transform: rotate(-1deg);
+    transition: all 0.2s;
+    position: relative;
+    min-height: 150px;
+}
+
+.note-error p, .critic-note p{
+    color: white;
+}
+
+.note::before,.note-error::before,.critic-note::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50px;
+    height: 10px;
+    background: rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%);
+}
+
+.note:nth-child(even),.note-error:nth-child(even),.critic-note:nth-child(even) {
+    transform: rotate(1deg);
+    background: #fde047;
+}
+
+.note:hover, .note-error:hover,.critic-note:hover {
+    transform: scale(1.02) rotate(0);
+    box-shadow: 
+        0 8px 15px rgba(0, 0, 0, 0.1),
+        0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.note p {
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #334155;
+}
+
+.reload-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.reload-button:hover {
+    background-color: #45a049;
+}
+
+@media (max-width: 768px) {
+    .notes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .add-note {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input[type="text"] {
+        width: 100%;
+    }
+}

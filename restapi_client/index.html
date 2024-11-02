@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Sticky Notes</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>My Notes</h1>
+
+        <div class="add-note">
+            <form action="http://localhost:3000" method="post">
+                <select class="tipoNota" name="tipoNota">
+                    <option value="normal">normal</option>
+                    <option value="critica">critica</option>
+                </select>
+                <input type="text" name="contenido" placeholder="Contenido de la nota">
+                <button>Add Note</button>
+            </form>
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            <div>
+                <label for="txt-fecha">Filtrar las notas por fecha: </label>
+                <input id="date_filter" type="date">
+                <button id="button_filtrar" type="submit">Filtrar</button> 
+            </div>            
+        </div>
+
+        <div id="notas_contenedor" class="notes-grid">
+
+        </div>
+    </div>
+    <script src="/restapi_client/index.js" type="module"></script>
+</body>
+
+</html>
